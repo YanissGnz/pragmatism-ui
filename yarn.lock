@@ -10699,6 +10699,21 @@ postcss@^8.4.18:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+pragratism-ui@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/pragratism-ui/-/pragratism-ui-0.1.1.tgz#8f0495bfe14f0ef4b07b0d075da79c0725a9a302"
+  integrity sha512-CEr2B9gb3ol4AvcHfpcDYrLvXdxuwhnrfiaTEWJgOOZVPU0jGVb7eaoW0t5/vtByDRO2TB9mQOn0OBwgUV5UlA==
+  dependencies:
+    "@headlessui/react" "^1.7.4"
+    "@radix-ui/react-checkbox" "^1.0.1"
+    "@radix-ui/react-icons" "^1.1.1"
+    "@radix-ui/react-select" "^1.1.1"
+    "@radix-ui/react-slider" "^1.1.0"
+    "@radix-ui/react-tabs" "^1.0.1"
+    "@radix-ui/react-tooltip" "^1.0.2"
+    "@stitches/react" "^1.2.8"
+    class-variance-authority "^0.2.4"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
