@@ -4,7 +4,7 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 //
 
-const base = cva(['flex flex-col w-max']);
+const base = cva(['w-max flex flex-col']);
 
 export interface TabsRootProps extends TabsPrimitive.TabsProps {}
 

@@ -8,13 +8,13 @@ const meta: Meta = {
   argTypes: {
     children: {
       control: {
-        type: 'Select',
-      },
-    },
+        type: 'Select'
+      }
+    }
   },
   parameters: {
-    controls: { expanded: true },
-  },
+    controls: { expanded: true }
+  }
 };
 
 export default meta;
@@ -25,45 +25,6 @@ const Template: Story<SelectProps> = args => (
     <SelectItem value="2">Option 2</SelectItem>
     <SelectItem value="3">Option 3</SelectItem>
     <SelectItem value="4">Option 4</SelectItem>
-    <SelectItem value="111">Option 5</SelectItem>
-    <SelectItem value="yaniss chbab">Option 5</SelectItem>
-    <SelectItem value="744">Option 5</SelectItem>
-    <SelectItem value="3554">Option 5</SelectItem>
-    <SelectItem value="amine 3atay">Option 5</SelectItem>
-    <SelectItem value="100">Option 5</SelectItem>
-    <SelectItem value="5a">Option 5</SelectItem>
-    <SelectItem value="98">Option 5</SelectItem>
-    <SelectItem value="68">Option 5</SelectItem>
-    <SelectItem value="85">Option 5</SelectItem>
-    <SelectItem value="65">Optiodedwedwedn 5</SelectItem>
-    <SelectItem value="15">Option 5</SelectItem>
-    <SelectItem value="13">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="12">Option 5</SelectItem>
-    <SelectItem value="11">Option 5</SelectItem>
-    <SelectItem value="10">Option 5</SelectItem>
   </Select>
 );
 
@@ -78,7 +39,7 @@ Error.args = {
   lable: 'Lable',
   error: true,
   errorText: 'Error Text',
-  helperText: 'Helper Text',
+  helperText: 'Helper Text'
 };
 Icons.args = {
   startIcon: (
@@ -93,7 +54,7 @@ Icons.args = {
         cy="12"
         r="10"
         stroke="currentColor"
-        stroke-width="2"
+        strokeWidth="2"
       ></circle>
     </svg>
   ),
@@ -109,8 +70,8 @@ Icons.args = {
         cy="12"
         r="10"
         stroke="currentColor"
-        stroke-width="2"
+        strokeWidth="2"
       ></circle>
     </svg>
-  ),
+  )
 };

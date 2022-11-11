@@ -2,37 +2,66 @@ import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
+import nextId from 'react-id-generator';
 
-const wrapper = cva('flex flex-col', {
-  variants: {
-    disabled: {
-      true: 'text-neutral-600',
+const wrapper = cva(
+  [
+    'dark:text-neutral dark:fill-neutral-400 dark:stroke-neutral-400',
+    'flex flex-col'
+  ],
+  {
+    variants: {
+      disabled: {
+        true: [
+          //** Light mode
+          'text-neutral-500',
+          //** Dark mode
+          'dark:text-neutral-600'
+        ]
+      }
     },
-  },
-  defaultVariants: { disabled: false },
-});
+    defaultVariants: { disabled: false }
+  }
+);
 
 const root = cva(
   [
-    'flex items-center gap-2 select-none',
-    'p-3 rounded-xl outline-neutral-300 placeholder:text-neutral-500 outline outline-1 focus-visible:outline-2',
+    //** General Layout
+    'p-3',
+    'flex items-center gap-2',
+    'rounded-xl',
+    'outline-neutral-300',
+    'placeholder:text-neutral-500',
+    'outline outline-1 focus-within:outline-2'
   ],
   {
     variants: {
       color: {
         primary: ['focus-visible:outline-primary'],
-        secondary: ['focus-visible:outline-secondary'],
+        secondary: ['focus-visible:outline-secondary']
       },
       disabled: {
-        true: 'text-neutral-600 outline-0 bg-neutral-100 pointer-events-none',
+        true: [
+          'outline-0',
+          //** Light mode
+          'bg-neutral-200',
+          'text-neutral-600',
+          'stroke-neutral-600',
+          'fill-neutral-600',
+          //** Dark mode
+          'dark:bg-neutral-700',
+          'dark:text-neutral-300',
+          'dark:stroke-neutral-300',
+          'dark:fill-neutral-300'
+        ]
       },
       error: { true: ['outline-error', 'focus-within:outline-error'] },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max',
-      },
+        false: 'w-max'
+      }
     },
-    defaultVariants: { disabled: false, fullWidth: false, color: 'primary' },
+    defaultVariants: { disabled: false, fullWidth: false, color: 'primary' }
   }
 );
 
@@ -63,14 +92,14 @@ const Select: React.FC<SelectProps> = ({
 }) => {
   return (
     <div className={wrapper({ disabled, class: className })}>
-      <label htmlFor={props.id} className="mb-1 font-medium">
+      <label htmlFor={props.id} className="mb-1 font-medium dark:text-inherit">
         {lable}
       </label>
-      <SelectPrimitive.Root>
+      <SelectPrimitive.Root disabled={disabled}>
         <SelectPrimitive.SelectTrigger
           className={root({ color, disabled, error })}
         >
-          {startIcon}
+          <span id={nextId('start-icon-')}>{startIcon}</span>
           <SelectPrimitive.Value placeholder="Select" />
           <SelectPrimitive.SelectIcon>
             <svg
@@ -88,7 +117,7 @@ const Select: React.FC<SelectProps> = ({
           </SelectPrimitive.SelectIcon>
         </SelectPrimitive.SelectTrigger>
         <SelectPrimitive.Portal>
-          <SelectPrimitive.Content className="overflow-hidden bg-white rounded-lg shadow-lg">
+          <SelectPrimitive.Content className="overflow-hidden bg-neutral text-black dark:bg-neutral-900 dark:text-neutral rounded-lg shadow-lg">
             <SelectPrimitive.ScrollUpButton className="flex items-center justify-center h-6 bg-inherit text-inherit cursor-default">
               <ChevronUpIcon />
             </SelectPrimitive.ScrollUpButton>
@@ -112,6 +141,7 @@ const Select: React.FC<SelectProps> = ({
             viewBox="0 0 14 15"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            stroke="none"
             className="fill-error"
           >
             <path d="M7 0.75C3.11719 0.75 0 3.89453 0 7.75C0 11.6328 3.11719 14.75 7 14.75C10.8555 14.75 14 11.6328 14 7.75C14 3.89453 10.8555 0.75 7 0.75ZM6.34375 4.90625C6.34375 4.55078 6.61719 4.25 7 4.25C7.35547 4.25 7.65625 4.55078 7.65625 4.90625V8.40625C7.65625 8.78906 7.35547 9.0625 7 9.0625C6.61719 9.0625 6.34375 8.78906 6.34375 8.40625V4.90625ZM7 11.6875C6.50781 11.6875 6.125 11.3047 6.125 10.8398C6.125 10.375 6.50781 9.99219 7 9.99219C7.46484 9.99219 7.84766 10.375 7.84766 10.8398C7.84766 11.3047 7.46484 11.6875 7 11.6875Z" />

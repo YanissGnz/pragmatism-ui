@@ -1,47 +1,71 @@
 import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+import nextId from 'react-id-generator';
 
-const wrapper = cva('flex flex-col', {
+const wrapper = cva(['flex flex-col', 'dark:text-neutral'], {
   variants: {
     disabled: {
-      true: 'text-neutral-600',
-    },
+      true: 'text-neutral-500 dark:text-neutral-600'
+    }
   },
-  defaultVariants: { disabled: false },
+  defaultVariants: { disabled: false }
 });
 
 const base = cva(
   [
-    'flex items-center gap-2 ',
-    'p-3 rounded-xl outline-neutral-300 placeholder:text-neutral-500 outline outline-1 focus-within:outline-2',
+    //** General Layout
+    'p-3',
+    'flex items-center gap-2',
+    'rounded-xl',
+    'outline outline-1 focus-within:outline-2',
+    'outline-neutral-300',
+    'placeholder:text-neutral-500',
+    //** Light mode
+    'stroke-black',
+    'fill-black',
+    //** Dark mode
+    'dark:stroke-neutral',
+    'dark:fill-neutral'
   ],
   {
     variants: {
       color: {
         primary: ['focus-within:outline-primary '],
-        secondary: ['focus-within:outline-secondary'],
+        secondary: ['focus-within:outline-secondary']
       },
       disabled: {
-        true: 'text-neutral-600 outline-0 bg-neutral-100',
+        true: [
+          'outline-0',
+          //** Light mode
+          'bg-neutral-200',
+          'text-neutral-600 ',
+          'stroke-neutral-600',
+          'fill-neutral-600',
+          //** Dark mode
+          'dark:bg-neutral-700',
+          'dark:text-neutral-300 ',
+          'dark:stroke-neutral-300',
+          'dark:fill-neutral-300'
+        ]
       },
       error: { true: ['outline-error', 'focus-within:outline-error'] },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max',
-      },
+        false: 'w-max'
+      }
     },
-    defaultVariants: { disabled: false, fullWidth: false, color: 'primary' },
+    defaultVariants: { fullWidth: false, color: 'primary' }
   }
 );
 
-const textField = cva(['outline-none flex-1'], {
+const textField = cva(['outline-none flex-1 bg-transparent'], {
   variants: {
     fullWidth: {
       true: 'w-full',
-      false: 'w-max',
-    },
+      false: 'w-max'
+    }
   },
-  defaultVariants: { fullWidth: false },
+  defaultVariants: { fullWidth: false }
 });
 
 export interface TextFieldProps
@@ -75,16 +99,18 @@ const TextField: React.FC<TextFieldProps> = ({
         {lable}
       </label>
       <div className={base({ disabled, error, color })}>
-        <span id={props.id + '-startIcon'}>{startIcon}</span>
+        <span id={nextId('start-icon-')}>{startIcon}</span>
         <input
           className={textField({ fullWidth })}
           {...props}
           disabled={disabled}
         />
-        <span id={props.id + 'endIcon'}>{endIcon}</span>
+        <span id={nextId('end-icon-')}>{endIcon}</span>
       </div>
       {helperText && !error && (
-        <span className="mt-1 text-sm text-neutral-600">{helperText}</span>
+        <span className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+          {helperText}
+        </span>
       )}
       {error && (
         <span className="mt-1 text-sm font-medium text-error flex items-center gap-1">
@@ -92,7 +118,7 @@ const TextField: React.FC<TextFieldProps> = ({
             width="14"
             height="15"
             viewBox="0 0 14 15"
-            fill="none"
+            fill="inherit"
             xmlns="http://www.w3.org/2000/svg"
             className="fill-error"
           >

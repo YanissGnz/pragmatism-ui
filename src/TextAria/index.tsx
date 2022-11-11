@@ -1,47 +1,70 @@
 import React, { useRef } from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
-const wrapper = cva('flex flex-col', {
+const wrapper = cva(['flex flex-col', 'dark:text-neutral'], {
   variants: {
     disabled: {
-      true: 'text-neutral-600',
-    },
+      true: 'text-neutral-500 dark:text-neutral-600'
+    }
   },
-  defaultVariants: { disabled: false },
+  defaultVariants: { disabled: false }
 });
 
 const base = cva(
   [
-    'flex items-center gap-2 ',
-    'p-3 rounded-xl outline-neutral-300 placeholder:text-neutral-500 outline outline-1 focus-within:outline-2',
+    //** General Layout
+    'p-3',
+    'flex items-center gap-2',
+    'rounded-xl',
+    'outline outline-1 focus-within:outline-2',
+    'outline-neutral-300',
+    'placeholder:text-neutral-500',
+    //** Light mode
+    'stroke-black',
+    'fill-black',
+    //** Dark mode
+    'dark:stroke-neutral',
+    'dark:fill-neutral'
   ],
   {
     variants: {
       color: {
         primary: ['focus-within:outline-primary '],
-        secondary: ['focus-within:outline-secondary'],
+        secondary: ['focus-within:outline-secondary']
       },
       disabled: {
-        true: 'text-neutral-600 outline-0 bg-neutral-100',
+        true: [
+          'outline-0',
+          //** Light mode
+          'bg-neutral-200',
+          'text-neutral-600 ',
+          'stroke-neutral-600',
+          'fill-neutral-600',
+          //** Dark mode
+          'dark:bg-neutral-700',
+          'dark:text-neutral-300 ',
+          'dark:stroke-neutral-300',
+          'dark:fill-neutral-300'
+        ]
       },
       error: { true: ['outline-error', 'focus-within:outline-error'] },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max',
-      },
+        false: 'w-max'
+      }
     },
-    defaultVariants: { disabled: false, fullWidth: false, color: 'primary' },
+    defaultVariants: { fullWidth: false, color: 'primary' }
   }
 );
 
-const textAria = cva(['outline-none flex-1'], {
+const textAria = cva(['outline-none flex-1 bg-transparent'], {
   variants: {
     fullWidth: {
       true: 'w-full',
-      false: 'w-max',
-    },
+      false: 'w-max'
+    }
   },
-  defaultVariants: { fullWidth: false },
+  defaultVariants: { fullWidth: false }
 });
 
 export interface TextAriaProps
@@ -68,7 +91,6 @@ const TextAria: React.FC<TextAriaProps> = ({
   ...props
 }) => {
   const ref = useRef<HTMLTextAreaElement>(null);
-  console.log(maxRow, props.rows);
   return (
     <div className={wrapper({ disabled, class: className })}>
       <label htmlFor={props.id} className="mb-1 font-medium">
@@ -90,10 +112,10 @@ const TextAria: React.FC<TextAriaProps> = ({
             overflowY: 'hidden',
             ...(maxRow && {
               maxHeight: maxRow * 20 + 'px',
-              overflowY: 'auto',
+              overflowY: 'auto'
             }),
             ...(props.rows && { height: props.rows * 20 + 'px' }),
-            resize: 'none',
+            resize: 'none'
           }}
         />
       </div>

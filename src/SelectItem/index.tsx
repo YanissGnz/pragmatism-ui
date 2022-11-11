@@ -6,10 +6,11 @@ const item = cva(
   [
     'flex items-center select-none relative py-1 pr-8 pl-6 outline-none rounded-lg',
     'hover:bg-neutral-100',
+    'dark:hover:bg-neutral-700'
   ],
   {
     variants: { disabled: { true: 'text-neutral-300 pointer-events-none' } },
-    defaultVariants: { disabled: false },
+    defaultVariants: { disabled: false }
   }
 );
 
@@ -29,7 +30,7 @@ const SelectItem: React.FC<SelectItemProps> = ({
 }) => (
   <SelectPrimitive.Item {...props} className={item({ disabled })}>
     <SelectPrimitive.ItemText>{props.children}</SelectPrimitive.ItemText>
-    <SelectPrimitive.ItemIndicator className="absolute left-0 w-6 inline-flex items-center justify-center stroke-black text-black">
+    <SelectPrimitive.ItemIndicator className="absolute left-0 w-6 inline-flex items-center justify-center stroke-black dark:stroke-neutral">
       <svg
         width="10"
         height="8"
@@ -39,9 +40,9 @@ const SelectItem: React.FC<SelectItemProps> = ({
       >
         <path
           d="M1.29999 5.09998L4.29999 7.09998L8.79999 1.09998"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </SelectPrimitive.ItemIndicator>

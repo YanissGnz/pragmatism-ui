@@ -9,13 +9,13 @@ const meta: Meta = {
   argTypes: {
     children: {
       control: {
-        type: 'Tab',
-      },
-    },
+        type: 'Tab'
+      }
+    }
   },
   parameters: {
-    controls: { expanded: true },
-  },
+    controls: { expanded: true }
+  }
 };
 
 export default meta;
@@ -70,8 +70,8 @@ const TemplateWithContent: Story<TabProps> = args => (
   </TabsRoot>
 );
 
-export const Default = Template.bind({});
+export const Default = Template.bind({ value: '' });
 export const TabsWithContent = TemplateWithContent.bind({});
 
-Default.args = { size: 'md' };
+Default.args = { size: 'md', value: '' };
 TabsWithContent.args = { size: 'md' };

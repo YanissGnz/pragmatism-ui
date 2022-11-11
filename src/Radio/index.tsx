@@ -3,38 +3,55 @@ import { cva, VariantProps } from 'class-variance-authority';
 
 const base = cva(
   [
-    'rounded-full border border-neutral-500 flex items-center justify-center stroke-none',
-    'peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-blue-400',
-    'peer-disabled:cursor-default peer-disabled:border-neutral-300 peer-checked:peer-disabled:bg-neutral-400 ',
+    //** General Layout
+    'flex items-center justify-center stroke-none',
+    'rounded-full border fill-none',
+    'peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-focus',
+    'peer-checked:border-0 peer-checked:fill-neutral',
+    'peer-disabled:cursor-default peer-disabled:border-neutral-300',
+    //** Light mode
+    'border-neutral-500',
+    'peer-checked:peer-disabled:bg-neutral-200',
+    //** Dark mode
+    'dark:border-neutral-300',
+    'dark:peer-disabled:border-neutral-700',
+    'dark:peer-checked:peer-disabled:bg-neutral-700'
   ],
   {
     variants: {
       size: {
         sm: 'w-4 h-4',
         md: 'w-[18px] h-[18px]',
-        lg: 'w-5 h-5',
+        lg: 'w-5 h-5'
       },
       color: {
-        primary:
-          'peer-checked:border-0 peer-checked:bg-primary peer-checked:text-neutral peer-checked:stroke-white peer-checked:',
-        secondary:
-          'peer-checked:border-0 peer-checked:bg-secondary peer-checked:text-neutral peer-checked:stroke-white',
-      },
+        primary: 'peer-checked:bg-primary',
+        secondary: 'peer-checked:bg-secondary'
+      }
     },
-    defaultVariants: { size: 'md', color: 'primary' },
+    defaultVariants: { size: 'md', color: 'primary' }
   }
 );
 
-const lableStyle = cva(['peer-disabled:text-neutral-600'], {
-  variants: {
-    size: {
-      sm: 'text-sm',
-      md: '',
-      lg: 'text-lg',
+const lableStyle = cva(
+  [
+    'peer-disabled:cursor-default',
+    //** Light mode
+    'peer-disabled:text-neutral-700 text-black',
+    //** Dark mode
+    'dark:peer-disabled:text-neutral-500 dark:text-neutral'
+  ],
+  {
+    variants: {
+      size: {
+        sm: 'text-sm',
+        md: 'text-base',
+        lg: 'text-lg'
+      }
     },
-  },
-  defaultVariants: { size: 'md' },
-});
+    defaultVariants: { size: 'md' }
+  }
+);
 
 export interface RadioProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
@@ -57,11 +74,11 @@ const Radio: React.FC<RadioProps> = ({
         width="18"
         height="18"
         viewBox="0 0 18 18"
-        fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="fill-inherit"
       >
         <g filter="url(#filter0_dd_1233_15078)">
-          <rect x="4.5" y="4.5" width="9" height="9" rx="4.5" fill="white" />
+          <rect x="4.5" y="4.5" width="9" height="9" rx="4.5" />
         </g>
         <defs>
           <filter

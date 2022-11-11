@@ -8,13 +8,13 @@ const meta: Meta = {
   argTypes: {
     children: {
       control: {
-        type: 'TextField',
-      },
-    },
+        type: 'TextField'
+      }
+    }
   },
   parameters: {
-    controls: { expanded: true },
-  },
+    controls: { expanded: true }
+  }
 };
 
 export default meta;
@@ -34,7 +34,7 @@ Error.args = {
   lable: 'Lable',
   error: true,
   errorText: 'Error Text',
-  helperText: 'Helper Text',
+  helperText: 'Helper Text'
 };
 Icons.args = {
   startIcon: (
@@ -44,13 +44,7 @@ Icons.args = {
       fill="none"
       viewBox="0 0 24 24"
     >
-      <circle
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        stroke-width="2"
-      ></circle>
+      <circle cx="12" cy="12" r="10" stroke="inherit" strokeWidth="2"></circle>
     </svg>
   ),
   endIcon: (
@@ -60,13 +54,7 @@ Icons.args = {
       fill="none"
       viewBox="0 0 24 24"
     >
-      <circle
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        stroke-width="2"
-      ></circle>
+      <circle cx="12" cy="12" r="10" stroke="inherit" strokeWidth="2"></circle>
     </svg>
-  ),
+  )
 };

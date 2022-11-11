@@ -4,10 +4,13 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 //
 
-const list = cva(['p-1 w-max flex bg-neutral-100 rounded-full gap-2'], {
-  variants: {},
-  defaultVariants: {},
-});
+const list = cva(
+  ['w-max p-1', 'flex rounded-full gap-2', 'bg-neutral-100', 'dark:bg-black'],
+  {
+    variants: {},
+    defaultVariants: {}
+  }
+);
 
 export interface TabsProps
   extends TabsPrimitive.TabsProps,

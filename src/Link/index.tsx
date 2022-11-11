@@ -1,23 +1,38 @@
 import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
+import nextId from 'react-id-generator';
 
 const base = cva(
   [
-    'outline-none cursor-pointer outline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-500 rounded flex items-center gap-1',
+    'cursor-pointer',
+    'flex items-center gap-1',
+    'outline-none outline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-500 '
   ],
   {
     variants: {
       color: {
-        primary: 'text-primary hover:text-primary-700 fill-primary',
-        secondary: 'text-secondary hover:text-secondary-700',
-        default: '',
-        neutral: 'text-neutral-600 hover:text-neutral-700',
+        primary:
+          'text-primary hover:text-primary-700 fill-primary stroke-primary',
+        secondary:
+          'text-secondary hover:text-secondary-700 fill-secondary stroke-secondary',
+        default: [
+          //** Light mode
+          'text-black fill-black stroke-black',
+          //** Dark mode
+          'dark:text-neutral dark:fill-neutral dark:stroke-neutral'
+        ]
       },
       disabled: {
-        true: 'text-neutral-600 outline-none! pointer-events-none',
-      },
+        true: [
+          'outline-none! pointer-events-none',
+          //** Light mode
+          'text-neutral-500 fill-neutral-500 stroke-neutral-500',
+          //** Dark mode
+          'dark:text-neutral-600 dark:fill-neutral-600 dark:stroke-neutral-600'
+        ]
+      }
     },
-    defaultVariants: { color: 'primary', disabled: false },
+    defaultVariants: { color: 'primary', disabled: false }
   }
 );
 
@@ -27,7 +42,7 @@ export interface LinkProps
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   disabled?: boolean;
-  color?: 'primary' | 'secondary' | 'default' | 'neutral';
+  color?: 'primary' | 'secondary' | 'default';
   external?: boolean;
 }
 
@@ -44,7 +59,7 @@ const Link: React.FC<LinkProps> = ({
     return (
       <a className={base({ color, disabled, class: className })} {...props}>
         {props.children}
-        <span id={props.id + '-end-icon'}>
+        <span id={nextId('end-icon-')}>
           <svg
             width="10"
             height="9"
@@ -60,9 +75,9 @@ const Link: React.FC<LinkProps> = ({
     );
   return (
     <a className={base({ color, disabled, class: className })} {...props}>
-      <span id={props.id + '-start-icon'}>{startIcon}</span>
+      <span id={nextId('start-icon-')}>{startIcon}</span>
       {props.children}
-      <span id={props.id + '-end-icon'}>{endIcon}</span>
+      <span id={nextId('end-icon-')}>{endIcon}</span>
     </a>
   );
 };

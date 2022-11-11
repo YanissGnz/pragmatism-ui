@@ -2,94 +2,130 @@ import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const containedButton = cva(
-  'rounded-xl font-semibold transition-shadow ease-linear select-none flex items-center justify-around  outline-2 outline-offset-2 focus-visible:outline-blue-500',
+  [
+    //** General Layout
+    'font-semibold',
+    'inline-flex  items-center justify-around',
+    'transition-shadow ease-linear',
+    'select-none rounded-xl outline-2 outline-offset-2 focus:outline-focus',
+    //** Light mode
+    'disabled:bg-neutral-200 disabled:text-neutral-600 disabled:shadow-none!',
+    //** Dark mode
+    'dark:disabled:bg-neutral-700  dark:disabled:text-neutral-300'
+  ],
   {
     variants: {
       color: {
         primary: [
-          'bg-primary text-primary-contrast-text ',
-          'hover:bg-primary-700 active:bg-primary-500',
-          'disabled:bg-neutral-100 disabled:text-neutral-600 disabled:shadow-none!',
+          'text-primary-contrast-text ',
+          'bg-primary',
+          'hover:bg-primary/80',
+          'active:bg-primary/90'
         ],
         secondary: [
-          'bg-secondary text-secondary-contrast-text',
-          'hover:bg-secondary-700 active:bg-secondary-500',
-        ],
+          'text-secondary-contrast-text',
+          'bg-secondary',
+          'hover:bg-secondary/80',
+          'active:bg-secondary/90'
+        ]
       },
       size: {
         xs: ['px-3 py-2 text-sm  gap-2'],
         sm: ['px-4 py-3 text-sm gap-2'],
-        md: ['px-5 py-3 gap-4'],
+        md: ['px-5 py-3 text-base gap-4'],
         lg: ['px-6 py-4 text-lg gap-4'],
-        xl: ['px-7 py-5 text-lg gap-5'],
+        xl: ['px-7 py-5 text-xl gap-5']
       },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max',
+        false: 'w-max'
       },
       elevated: {
-        true: 'shadow-lg',
-      },
+        true: 'shadow-lg'
+      }
     },
     compoundVariants: [
       {
         size: 'md',
         fullWidth: false,
         elevated: false,
-        color: 'primary',
-      },
+        color: 'primary'
+      }
     ],
     defaultVariants: {
       size: 'md',
       elevated: false,
       fullWidth: false,
-      color: 'primary',
-    },
+      color: 'primary'
+    }
   }
 );
 
 const outlinedButton = cva(
-  'rounded-xl font-semibold transition-shadow ease-linear select-none flex items-center gap-2 outline-2 outline-offset-2 focus-visible:outline-blue-500',
+  [
+    //** General Layout
+    'font-semibold',
+    'flex items-center gap-2',
+    'transition-shadow ease-linear',
+    'border select-none rounded-xl outline-2 outline-offset-2 focus-visible:outline-blue-500',
+    //** Light mode
+    'disabled:bg-neutral-200 disabled:text-neutral-600 disabled:shadow-none!',
+    //** Dark mode
+    'dark:disabled:bg-neutral-700  dark:disabled:text-neutral-300'
+  ],
   {
     variants: {
       color: {
         primary: [
-          'border border-neutral-300 text-primary',
-          'hover:bg-neutral-100 active:bg-neutral-200',
-          'disabled:bg-neutral-100 disabled:text-neutral-600 disabled:shadow-none!',
+          //** Light mode
+          'text-primary',
+          'border-neutral-300',
+          'hover:bg-primary/10',
+          'active:bg-primary/20',
+          //** Dark mode
+          'dark:text-primary-light',
+          'dark:border-neutral-100',
+          'dark:hover:bg-primary/5',
+          'dark:active:bg-primary/20'
         ],
         secondary: [
-          'border border-neutral-300 text-secondary',
-          'hover:bg-neutral-100 active:bg-neutral-200',
-          'disabled:bg-neutral-100 disabled:text-neutral-600 disabled:shadow-none!',
-        ],
+          //** Light mode
+          'text-secondary',
+          'border-neutral-300',
+          'hover:bg-setext-secondary/10',
+          'active:bg-setext-secondary/20',
+          //** Dark mode
+          'dark:text-secondary-light',
+          'dark:border-neutral-100',
+          'dark:hover:bg-secondary/5',
+          'dark:active:bg-secondary/20'
+        ]
       },
       size: {
         xs: ['px-3 py-2 text-sm  gap-2'],
         sm: ['px-4 py-3 text-sm gap-2'],
         md: ['px-5 py-3 gap-4'],
         lg: ['px-6 py-4 text-lg gap-4'],
-        xl: ['px-7 py-5 text-lg gap-5'],
+        xl: ['px-7 py-5 text-lg gap-5']
       },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max',
-      },
+        false: 'w-max'
+      }
     },
     defaultVariants: {
       size: 'md',
       fullWidth: false,
-      color: 'primary',
-    },
+      color: 'primary'
+    }
   }
 );
 
 export interface ButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'color'>,
     VariantProps<typeof containedButton | typeof outlinedButton> {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  color?: 'primary' | 'secondary';
   variant?: 'contained' | 'outlined';
   elevated?: boolean;
   disabled?: boolean;
@@ -115,13 +151,13 @@ const Button: React.FC<ButtonProps> = ({
               color,
               fullWidth,
               elevated,
-              class: className,
+              class: className
             })
           : outlinedButton({
               size,
               color,
               fullWidth,
-              class: className,
+              class: className
             })
       }
       {...props}

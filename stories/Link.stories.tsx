@@ -8,13 +8,13 @@ const meta: Meta = {
   argTypes: {
     children: {
       control: {
-        type: 'Link',
-      },
-    },
+        type: 'Link'
+      }
+    }
   },
   parameters: {
-    controls: { expanded: true },
-  },
+    controls: { expanded: true }
+  }
 };
 
 export default meta;
@@ -40,7 +40,7 @@ Icons.args = {
         cy="12"
         r="10"
         stroke="currentColor"
-        stroke-width="2"
+        strokeWidth="2"
       ></circle>
     </svg>
   ),
@@ -56,8 +56,8 @@ Icons.args = {
         cy="12"
         r="10"
         stroke="currentColor"
-        stroke-width="2"
+        strokeWidth="2"
       ></circle>
     </svg>
-  ),
+  )
 };

@@ -8,29 +8,19 @@ const meta: Meta = {
   argTypes: {
     children: {
       control: {
-        type: 'Banner',
-      },
-    },
+        type: 'Banner'
+      }
+    }
   },
   parameters: {
-    controls: { expanded: true },
-  },
+    controls: { expanded: true }
+  }
 };
 
 export default meta;
 
-const Template: Story<BannerProps> = args => (
-  <>
-    <Banner
-      {...args}
-      title="Title"
-      description="Description"
-      className="mb-2"
-    />
-    <Banner {...args} title="Title" />
-  </>
-);
+const Template: Story<BannerProps> = args => <Banner {...args} />;
 
 export const Default = Template.bind({});
 
-Default.args = {};
+Default.args = { title: 'Title', description: 'Description' };

@@ -2,33 +2,82 @@ import React from 'react';
 import { cva, VariantProps } from 'class-variance-authority';
 
 const base = cva(
-  ['flex flex-col items-start gap-0.5 border-2 rounded-xl w-fit '],
+  [
+    //** General Layout
+    'w-fit',
+    'flex flex-col items-start gap-0.5',
+    'border-2 rounded-xl'
+  ],
   {
     variants: {
       color: {
-        info: 'border-info bg-info/10 text-info fill-info',
-        success: 'border-success bg-success/10 text-success fill-success',
-        warning: 'border-error bg-error/10 text-error fill-error',
+        info: [
+          //** Light mode
+          'bg-info-light/10',
+          'border-info',
+          'text-info-dark',
+          'fill-info-dark',
+          //** Dark mode
+          'dark:bg-info-dark/5',
+          'dark:text-info-light',
+          'dark:border-info-light',
+          'dark:fill-info-light'
+        ],
+        success: [
+          //** Light mode
+          'bg-success-light/10',
+          'border-success',
+          'text-success-dark',
+          'fill-success-dark',
+          //** Dark mode
+          'dark:bg-success-dark/5',
+          'dark:text-success-light',
+          'dark:border-success-light',
+          'dark:fill-success-light'
+        ],
+        warning: [
+          //** Light mode
+          'bg-warning-light/10',
+          'border-warning',
+          'text-warning-dark',
+          'fill-warning-dark',
+          //** Dark mode
+          'dark:bg-warning-dark/5',
+          'dark:text-warning-light',
+          'dark:border-warning-light',
+          'dark:fill-warning-light'
+        ],
+        error: [
+          //** Light mode
+          'bg-error-light/10',
+          'border-error',
+          'text-error-dark',
+          'fill-error-dark',
+          //** Dark mode
+          'dark:bg-error-dark/5',
+          'dark:text-error-light',
+          'dark:border-error-light',
+          'dark:fill-error-light'
+        ]
       },
       size: {
         sm: 'min-w-[300px] text-sm px-2 py-2',
-        md: 'min-w-[350px] text-sm px-3 py-3',
-        lg: 'min-w-[400px] text-sm  px-4 py-3 ',
-      },
+        md: 'min-w-[350px] text-sm px-3 py-2'
+      }
     },
-    defaultVariants: { size: 'md', color: 'info' },
+    defaultVariants: { size: 'md', color: 'info' }
   }
 );
 
 const icon = cva(['fill-inherit text-left'], {
   variants: {
     size: {
-      sm: '',
+      sm: 'scale-100',
       md: 'scale-110',
-      lg: 'scale-125',
-    },
+      lg: 'scale-125'
+    }
   },
-  defaultVariants: { size: 'md' },
+  defaultVariants: { size: 'md' }
 });
 
 const text = cva(['font-semibold flex-1'], {
@@ -36,16 +85,16 @@ const text = cva(['font-semibold flex-1'], {
     size: {
       sm: 'text-base',
       md: 'text-lg',
-      lg: 'text-xl',
-    },
+      lg: 'text-xl'
+    }
   },
-  defaultVariants: { size: 'md' },
+  defaultVariants: { size: 'md' }
 });
 
 export interface BannerProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, 'size'>,
     VariantProps<typeof base> {
-  color?: 'info' | 'success' | 'warning';
+  color?: 'info' | 'success' | 'warning' | 'error';
   lable?: string;
   title: string;
   description?: string;
@@ -56,7 +105,7 @@ const Banner: React.FC<BannerProps> = ({
   color = 'info',
   title,
   size,
-  description,
+  description
 }) => (
   <div className={base({ color, size, class: className })}>
     <div className="w-full flex items-center gap-2">
@@ -85,7 +134,7 @@ const Banner: React.FC<BannerProps> = ({
             <path d="M0 8C0 3.59375 3.5625 0 8 0C12.4062 0 16 3.59375 16 8C16 12.4375 12.4062 16 8 16C3.5625 16 0 12.4375 0 8ZM11.5938 6.625C11.9375 6.28125 11.9375 5.75 11.5938 5.40625C11.25 5.0625 10.7188 5.0625 10.375 5.40625L7 8.78125L5.59375 7.40625C5.25 7.0625 4.71875 7.0625 4.375 7.40625C4.03125 7.75 4.03125 8.28125 4.375 8.625L6.375 10.625C6.71875 10.9688 7.25 10.9688 7.59375 10.625L11.5938 6.625Z" />
           </svg>
         )}
-        {color === 'warning' && (
+        {(color === 'warning' || color === 'error') && (
           <svg
             width="16"
             height="16"
