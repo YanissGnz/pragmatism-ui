@@ -2,68 +2,72 @@
 module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{js,jsx,ts,tsx}', './stories/*'],
+  darkMode: 'class',
   theme: {
     extend: {
       keyframes: {
         'slide-left-and-fade': {
           '0%': { opacity: 0, transform: 'translateX(2px)' },
-          '100%': { opacity: 1, transform: 'translateX(0)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' }
         },
         'slide-down-and-fade': {
           '0%': { opacity: 0, transform: 'translateY(-2px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' }
         },
         'slide-right-and-fade': {
           '0%': { opacity: 0, transform: 'translateX(-2px)' },
-          '100%': { opacity: 1, transform: 'translateX(0)' },
+          '100%': { opacity: 1, transform: 'translateX(0)' }
         },
         'slide-up-and-fade': {
           '0%': { opacity: 0, transform: 'translateY(2px)' },
-          '100%': { opacity: 1, transform: 'translateY(0)' },
-        },
+          '100%': { opacity: 1, transform: 'translateY(0)' }
+        }
       },
       animation: {
         'slide-left-and-fade': 'slide-left-and-fade 400ms',
         'slide-down-and-fade': 'slide-down-and-fade 400ms',
         'slide-right-and-fade': 'slide-right-and-fade 400ms',
-        'slide-up-and-fade': 'slide-up-and-fade 400ms',
+        'slide-up-and-fade': 'slide-up-and-fade 400ms'
       },
       fontFamily: {
-        sans: ['Poppins'],
+        sans: ['Poppins']
       },
       colors: {
         primary: {
-          100: '#FFF0F1',
-          200: '#FFDBDF',
-          500: '#FF2941',
-          DEFAULT: '#FF0420',
-          700: '#F71C35',
-          'contrast-text': '#FFFFFF',
+          light: '#79E1F6',
+          DEFAULT: '#0EB1D2',
+          dark: '#086172',
+          'contrast-text': '#FFFFFF'
         },
         secondary: {
-          100: '#EDF4FC',
-          200: '#D7E6F9',
-          DEFAULT: '#2173DF',
-          700: '#1C65C4',
-          'contrast-text': '#FFFFFF',
+          light: '#F1D26A',
+          DEFAULT: '#ECC032',
+          dark: '#83670C',
+          'contrast-text': '#000000'
         },
         info: {
-          100: '#EDF4FC',
-          200: '#D7E6F9',
-          DEFAULT: '#2173DF',
-          700: '#1C65C4',
+          light: '#4FC3F7',
+          DEFAULT: '#29B6F6',
+          dark: '#0288D1',
+          'contrast-text': '#000000'
         },
         success: {
-          100: '#EEF6EE',
-          200: '#DEEDDE',
-          DEFAULT: '#5BA85A',
-          800: '#3F753E',
+          light: '#81c784',
+          DEFAULT: '#66bb6a',
+          dark: '#388e3c',
+          'contrast-text': '#000000'
         },
         error: {
-          100: '#FDF6F2',
-          200: '#FAEAE0',
-          DEFAULT: '#DD6B20',
-          700: '#C45F1C',
+          light: '#E57373',
+          DEFAULT: '#F44336',
+          dark: '#D32F2F',
+          'contrast-text': '#FFFFFF'
+        },
+        warning: {
+          light: '#ffb74d',
+          DEFAULT: '#ffa726',
+          dark: '#DD6B20',
+          'contrast-text': '#FFFFFF'
         },
         highlight: '#F3CF00',
         neutral: {
@@ -76,12 +80,12 @@ module.exports = {
           600: '#68778D',
           700: '#4A5568',
           800: '#323A43',
-          900: '#202327',
+          900: '#202327'
         },
         skelaton: '#CBD5E0',
-        focus: '#2173DF',
-      },
-    },
+        focus: '#2173DF'
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 };
