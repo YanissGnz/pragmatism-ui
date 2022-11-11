@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Link from '../src/Link';
+import Banner from '../src/Banner';
 
-describe('Link Test', () => {
+describe('Banner Test', () => {
   it('should renders without crashing', () => {
-    render(<Link>Link</Link>);
+    render(<Banner title="title" />);
   });
 });

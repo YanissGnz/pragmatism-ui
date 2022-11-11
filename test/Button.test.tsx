@@ -1,11 +1,9 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Default as Button } from '../stories/Button.stories';
+import { render } from '@testing-library/react';
+import Button from '../src/Button';
 
-describe('Button', () => {
+describe('Button Test', () => {
   it('should renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Button />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<Button>Button</Button>);
   });
 });

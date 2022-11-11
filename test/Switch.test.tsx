@@ -1,11 +1,12 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Default as Switch } from '../stories/Switch.stories';
+import { render } from '@testing-library/react';
+import Switch from '../src/Switch';
 
-describe('Switch', () => {
+describe('Switch Test', () => {
   it('should renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Switch />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<Switch />);
+  });
+  it('should renders with icon without crashing', () => {
+    render(<Switch withIcon />);
   });
 });

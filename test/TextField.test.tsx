@@ -1,11 +1,9 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Default as TextField } from '../stories/TextField.stories';
+import { render } from '@testing-library/react';
+import TextField from '../src/TextField';
 
-describe('TextField', () => {
+describe('TextField Test', () => {
   it('should renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<TextField />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<TextField lable="Lable" helperText="Helper text" />);
   });
 });

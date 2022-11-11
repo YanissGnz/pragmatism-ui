@@ -1,11 +1,9 @@
 import React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Default as Radio } from '../stories/Radio.stories';
+import { render } from '@testing-library/react';
+import Radio from '../src/Radio';
 
-describe('Radio', () => {
+describe('Radio Test', () => {
   it('should renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Radio />, div);
-    ReactDOM.unmountComponentAtNode(div);
+    render(<Radio lable="Lable" />);
   });
 });
