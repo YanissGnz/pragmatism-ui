@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Switch from '../src/Switch';
+import { Switch } from '../src/Switch';
 
 describe('Switch Test', () => {
   it('should renders without crashing', () => {

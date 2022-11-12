@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import TextField from '../src/TextField';
+import { TextField } from '../src/TextField';
 
 describe('TextField Test', () => {
   it('should renders without crashing', () => {
