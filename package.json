@@ -50,11 +50,11 @@
   "size-limit": [
     {
       "path": "dist/pragratism-ui.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "500 KB"
     },
     {
       "path": "dist/pragratism-ui.esm.js",
-      "limit": "10 KB"
+      "limit": "500 KB"
     }
   ],
   "devDependencies": {
