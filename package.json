@@ -33,9 +33,16 @@
   },
   "prettier": {
     "printWidth": 80,
-    "semi": true,
+    "tabWidth": 2,
     "singleQuote": true,
-    "trailingComma": "none"
+    "trailingComma": "es5",
+    "semi": true,
+    "newline-before-return": true,
+    "no-duplicate-variable": [
+      true,
+      "check-parameters"
+    ],
+    "no-var-keyword": true
   },
   "name": "pragratism-ui",
   "author": "Yaniss Guendouzi",
