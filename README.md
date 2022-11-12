@@ -64,7 +64,7 @@ module.exports = {
 }
 ```
 
-#### 4. Import `tailwind.css` file from pragratism-ui:
+#### 4. Import `tailwind.css` file in your `index.{js,jsx,tsx}` file from pragratism-ui:
 
 ```javascript
 // Order is important
