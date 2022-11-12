@@ -7,7 +7,7 @@ import nextId from 'react-id-generator';
 const wrapper = cva(
   [
     'dark:text-neutral dark:fill-neutral-400 dark:stroke-neutral-400',
-    'flex flex-col'
+    'flex flex-col',
   ],
   {
     variants: {
@@ -16,11 +16,11 @@ const wrapper = cva(
           //** Light mode
           'text-neutral-500',
           //** Dark mode
-          'dark:text-neutral-600'
-        ]
-      }
+          'dark:text-neutral-600',
+        ],
+      },
     },
-    defaultVariants: { disabled: false }
+    defaultVariants: { disabled: false },
   }
 );
 
@@ -32,13 +32,13 @@ const root = cva(
     'rounded-xl',
     'outline-neutral-300',
     'placeholder:text-neutral-500',
-    'outline outline-1 focus-within:outline-2'
+    'outline outline-1 focus-within:outline-2',
   ],
   {
     variants: {
       color: {
         primary: ['focus-visible:outline-primary'],
-        secondary: ['focus-visible:outline-secondary']
+        secondary: ['focus-visible:outline-secondary'],
       },
       disabled: {
         true: [
@@ -52,16 +52,16 @@ const root = cva(
           'dark:bg-neutral-700',
           'dark:text-neutral-300',
           'dark:stroke-neutral-300',
-          'dark:fill-neutral-300'
-        ]
+          'dark:fill-neutral-300',
+        ],
       },
       error: { true: ['outline-error', 'focus-within:outline-error'] },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max'
-      }
+        false: 'w-max',
+      },
     },
-    defaultVariants: { disabled: false, fullWidth: false, color: 'primary' }
+    defaultVariants: { disabled: false, fullWidth: false, color: 'primary' },
   }
 );
 
@@ -78,7 +78,7 @@ export interface SelectProps
   disabled?: boolean;
 }
 
-const Select: React.FC<SelectProps> = ({
+export const Select: React.FC<SelectProps> = ({
   className,
   startIcon,
   endIcon,
@@ -152,5 +152,3 @@ const Select: React.FC<SelectProps> = ({
     </div>
   );
 };
-
-export default Select;

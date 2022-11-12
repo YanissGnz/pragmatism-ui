@@ -11,7 +11,7 @@ const containedButton = cva(
     //** Light mode
     'disabled:bg-neutral-200 disabled:text-neutral-600 disabled:shadow-none!',
     //** Dark mode
-    'dark:disabled:bg-neutral-700  dark:disabled:text-neutral-300'
+    'dark:disabled:bg-neutral-700  dark:disabled:text-neutral-300',
   ],
   {
     variants: {
@@ -20,44 +20,44 @@ const containedButton = cva(
           'text-primary-contrast-text ',
           'bg-primary',
           'hover:bg-primary/80',
-          'active:bg-primary/90'
+          'active:bg-primary/90',
         ],
         secondary: [
           'text-secondary-contrast-text',
           'bg-secondary',
           'hover:bg-secondary/80',
-          'active:bg-secondary/90'
-        ]
+          'active:bg-secondary/90',
+        ],
       },
       size: {
         xs: ['px-3 py-2 text-sm  gap-2'],
         sm: ['px-4 py-3 text-sm gap-2'],
         md: ['px-5 py-3 text-base gap-4'],
         lg: ['px-6 py-4 text-lg gap-4'],
-        xl: ['px-7 py-5 text-xl gap-5']
+        xl: ['px-7 py-5 text-xl gap-5'],
       },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max'
+        false: 'w-max',
       },
       elevated: {
-        true: 'shadow-lg'
-      }
+        true: 'shadow-lg',
+      },
     },
     compoundVariants: [
       {
         size: 'md',
         fullWidth: false,
         elevated: false,
-        color: 'primary'
-      }
+        color: 'primary',
+      },
     ],
     defaultVariants: {
       size: 'md',
       elevated: false,
       fullWidth: false,
-      color: 'primary'
-    }
+      color: 'primary',
+    },
   }
 );
 
@@ -71,7 +71,7 @@ const outlinedButton = cva(
     //** Light mode
     'disabled:bg-neutral-200 disabled:text-neutral-600 disabled:shadow-none!',
     //** Dark mode
-    'dark:disabled:bg-neutral-700  dark:disabled:text-neutral-300'
+    'dark:disabled:bg-neutral-700  dark:disabled:text-neutral-300',
   ],
   {
     variants: {
@@ -86,7 +86,7 @@ const outlinedButton = cva(
           'dark:text-primary-light',
           'dark:border-neutral-100',
           'dark:hover:bg-primary/5',
-          'dark:active:bg-primary/20'
+          'dark:active:bg-primary/20',
         ],
         secondary: [
           //** Light mode
@@ -98,26 +98,26 @@ const outlinedButton = cva(
           'dark:text-secondary-light',
           'dark:border-neutral-100',
           'dark:hover:bg-secondary/5',
-          'dark:active:bg-secondary/20'
-        ]
+          'dark:active:bg-secondary/20',
+        ],
       },
       size: {
         xs: ['px-3 py-2 text-sm  gap-2'],
         sm: ['px-4 py-3 text-sm gap-2'],
         md: ['px-5 py-3 gap-4'],
         lg: ['px-6 py-4 text-lg gap-4'],
-        xl: ['px-7 py-5 text-lg gap-5']
+        xl: ['px-7 py-5 text-lg gap-5'],
       },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max'
-      }
+        false: 'w-max',
+      },
     },
     defaultVariants: {
       size: 'md',
       fullWidth: false,
-      color: 'primary'
-    }
+      color: 'primary',
+    },
   }
 );
 
@@ -131,7 +131,7 @@ export interface ButtonProps
   disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   className,
   variant = 'contained',
   size,
@@ -151,13 +151,13 @@ const Button: React.FC<ButtonProps> = ({
               color,
               fullWidth,
               elevated,
-              class: className
+              class: className,
             })
           : outlinedButton({
               size,
               color,
               fullWidth,
-              class: className
+              class: className,
             })
       }
       {...props}
@@ -168,5 +168,3 @@ const Button: React.FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;

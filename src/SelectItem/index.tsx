@@ -6,11 +6,11 @@ const item = cva(
   [
     'flex items-center select-none relative py-1 pr-8 pl-6 outline-none rounded-lg',
     'hover:bg-neutral-100',
-    'dark:hover:bg-neutral-700'
+    'dark:hover:bg-neutral-700',
   ],
   {
     variants: { disabled: { true: 'text-neutral-300 pointer-events-none' } },
-    defaultVariants: { disabled: false }
+    defaultVariants: { disabled: false },
   }
 );
 
@@ -22,7 +22,7 @@ export interface SelectItemProps
   disabled?: boolean;
 }
 
-const SelectItem: React.FC<SelectItemProps> = ({
+export const SelectItem: React.FC<SelectItemProps> = ({
   className,
   withIcon = false,
   disabled,
@@ -48,5 +48,3 @@ const SelectItem: React.FC<SelectItemProps> = ({
     </SelectPrimitive.ItemIndicator>
   </SelectPrimitive.Item>
 );
-
-export default SelectItem;

@@ -6,7 +6,7 @@ const base = cva(
   [
     'cursor-pointer',
     'flex items-center gap-1',
-    'outline-none outline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-500 '
+    'outline-none outline-offset-4 focus-visible:outline-2 focus-visible:outline-blue-500 ',
   ],
   {
     variants: {
@@ -19,8 +19,8 @@ const base = cva(
           //** Light mode
           'text-black fill-black stroke-black',
           //** Dark mode
-          'dark:text-neutral dark:fill-neutral dark:stroke-neutral'
-        ]
+          'dark:text-neutral dark:fill-neutral dark:stroke-neutral',
+        ],
       },
       disabled: {
         true: [
@@ -28,11 +28,11 @@ const base = cva(
           //** Light mode
           'text-neutral-500 fill-neutral-500 stroke-neutral-500',
           //** Dark mode
-          'dark:text-neutral-600 dark:fill-neutral-600 dark:stroke-neutral-600'
-        ]
-      }
+          'dark:text-neutral-600 dark:fill-neutral-600 dark:stroke-neutral-600',
+        ],
+      },
     },
-    defaultVariants: { color: 'primary', disabled: false }
+    defaultVariants: { color: 'primary', disabled: false },
   }
 );
 
@@ -46,7 +46,7 @@ export interface LinkProps
   external?: boolean;
 }
 
-const Link: React.FC<LinkProps> = ({
+export const Link: React.FC<LinkProps> = ({
   className,
   disabled,
   color,
@@ -81,5 +81,3 @@ const Link: React.FC<LinkProps> = ({
     </a>
   );
 };
-
-export default Link;

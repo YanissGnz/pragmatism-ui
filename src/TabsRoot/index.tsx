@@ -8,8 +8,6 @@ const base = cva(['w-max flex flex-col']);
 
 export interface TabsRootProps extends TabsPrimitive.TabsProps {}
 
-const TabsRoot: React.FC<TabsRootProps> = ({ className, ...props }) => (
+export const TabsRoot: React.FC<TabsRootProps> = ({ className, ...props }) => (
   <TabsPrimitive.Root className={base({ class: className })} {...props} />
 );
-
-export default TabsRoot;

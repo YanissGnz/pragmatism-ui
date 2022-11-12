@@ -6,7 +6,7 @@ const base = cva(
     //** General Layout
     'w-fit',
     'flex flex-col items-start gap-0.5',
-    'border-2 rounded-xl'
+    'border-2 rounded-xl',
   ],
   {
     variants: {
@@ -21,7 +21,7 @@ const base = cva(
           'dark:bg-info-dark/5',
           'dark:text-info-light',
           'dark:border-info-light',
-          'dark:fill-info-light'
+          'dark:fill-info-light',
         ],
         success: [
           //** Light mode
@@ -33,7 +33,7 @@ const base = cva(
           'dark:bg-success-dark/5',
           'dark:text-success-light',
           'dark:border-success-light',
-          'dark:fill-success-light'
+          'dark:fill-success-light',
         ],
         warning: [
           //** Light mode
@@ -45,7 +45,7 @@ const base = cva(
           'dark:bg-warning-dark/5',
           'dark:text-warning-light',
           'dark:border-warning-light',
-          'dark:fill-warning-light'
+          'dark:fill-warning-light',
         ],
         error: [
           //** Light mode
@@ -57,15 +57,15 @@ const base = cva(
           'dark:bg-error-dark/5',
           'dark:text-error-light',
           'dark:border-error-light',
-          'dark:fill-error-light'
-        ]
+          'dark:fill-error-light',
+        ],
       },
       size: {
         sm: 'min-w-[300px] text-sm px-2 py-2',
-        md: 'min-w-[350px] text-sm px-3 py-2'
-      }
+        md: 'min-w-[350px] text-sm px-3 py-2',
+      },
     },
-    defaultVariants: { size: 'md', color: 'info' }
+    defaultVariants: { size: 'md', color: 'info' },
   }
 );
 
@@ -74,10 +74,10 @@ const icon = cva(['fill-inherit text-left'], {
     size: {
       sm: 'scale-100',
       md: 'scale-110',
-      lg: 'scale-125'
-    }
+      lg: 'scale-125',
+    },
   },
-  defaultVariants: { size: 'md' }
+  defaultVariants: { size: 'md' },
 });
 
 const text = cva(['font-semibold flex-1'], {
@@ -85,10 +85,10 @@ const text = cva(['font-semibold flex-1'], {
     size: {
       sm: 'text-base',
       md: 'text-lg',
-      lg: 'text-xl'
-    }
+      lg: 'text-xl',
+    },
   },
-  defaultVariants: { size: 'md' }
+  defaultVariants: { size: 'md' },
 });
 
 export interface BannerProps
@@ -100,12 +100,12 @@ export interface BannerProps
   description?: string;
 }
 
-const Banner: React.FC<BannerProps> = ({
+export const Banner: React.FC<BannerProps> = ({
   className,
   color = 'info',
   title,
   size,
-  description
+  description,
 }) => (
   <div className={base({ color, size, class: className })}>
     <div className="w-full flex items-center gap-2">
@@ -152,5 +152,3 @@ const Banner: React.FC<BannerProps> = ({
     <p className="ml-6">{description}</p>
   </div>
 );
-
-export default Banner;

@@ -18,10 +18,10 @@ const content = cva(
     variants: {
       size: {
         sm: 'px-4 py-1 text-sm',
-        md: 'px-4 py-1'
-      }
+        md: 'px-4 py-1',
+      },
     },
-    defaultVariants: { size: 'sm' }
+    defaultVariants: { size: 'sm' },
   }
 );
 
@@ -32,7 +32,7 @@ export interface TooltipProps
   title: string;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({
+export const Tooltip: React.FC<TooltipProps> = ({
   className,
   size,
   title,
@@ -54,5 +54,3 @@ const Tooltip: React.FC<TooltipProps> = ({
     </TooltipPrimitive.Root>
   </TooltipPrimitive.Provider>
 );
-
-export default Tooltip;

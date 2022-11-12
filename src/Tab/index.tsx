@@ -12,17 +12,17 @@ const base = cva(
     'transition-colors',
     'data-[state=active]:font-medium',
     'data-[state=active]:bg-white data-[state=active]:text-black ',
-    'dark:data-[state=active]:bg-neutral-800 dark:data-[state=active]:text-neutral'
+    'dark:data-[state=active]:bg-neutral-800 dark:data-[state=active]:text-neutral',
   ],
   {
     variants: {
       size: {
         sm: 'px-5 py-1 text-sm',
         md: 'px-6 py-2',
-        lg: 'px-8 py-3 text-lg'
-      }
+        lg: 'px-8 py-3 text-lg',
+      },
     },
-    defaultVariants: { size: 'md' }
+    defaultVariants: { size: 'md' },
   }
 );
 
@@ -30,11 +30,9 @@ export interface TabProps
   extends TabsPrimitive.TabsTriggerProps,
     VariantProps<typeof base> {}
 
-const Tab: React.FC<TabProps> = ({ className, size, ...props }) => (
+export const Tab: React.FC<TabProps> = ({ className, size, ...props }) => (
   <TabsPrimitive.Trigger
     className={base({ size, class: className })}
     {...props}
   />
 );
-
-export default Tab;

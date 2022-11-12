@@ -4,13 +4,14 @@ import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 const base = cva(['mt-2 data-[state=inactive]:hidden dark:text-neutral'], {
   variants: {},
-  defaultVariants: {}
+  defaultVariants: {},
 });
 
 export interface TabContentProps extends TabsPrimitive.TabsContentProps {}
 
-const Tab: React.FC<TabContentProps> = ({ className, ...props }) => (
+export const TabContent: React.FC<TabContentProps> = ({
+  className,
+  ...props
+}) => (
   <TabsPrimitive.Content className={base({ class: className })} {...props} />
 );
-
-export default Tab;

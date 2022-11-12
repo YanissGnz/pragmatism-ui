@@ -4,10 +4,10 @@ import { cva, VariantProps } from 'class-variance-authority';
 const wrapper = cva(['flex flex-col', 'dark:text-neutral'], {
   variants: {
     disabled: {
-      true: 'text-neutral-500 dark:text-neutral-600'
-    }
+      true: 'text-neutral-500 dark:text-neutral-600',
+    },
   },
-  defaultVariants: { disabled: false }
+  defaultVariants: { disabled: false },
 });
 
 const base = cva(
@@ -24,13 +24,13 @@ const base = cva(
     'fill-black',
     //** Dark mode
     'dark:stroke-neutral',
-    'dark:fill-neutral'
+    'dark:fill-neutral',
   ],
   {
     variants: {
       color: {
         primary: ['focus-within:outline-primary '],
-        secondary: ['focus-within:outline-secondary']
+        secondary: ['focus-within:outline-secondary'],
       },
       disabled: {
         true: [
@@ -44,16 +44,16 @@ const base = cva(
           'dark:bg-neutral-700',
           'dark:text-neutral-300 ',
           'dark:stroke-neutral-300',
-          'dark:fill-neutral-300'
-        ]
+          'dark:fill-neutral-300',
+        ],
       },
       error: { true: ['outline-error', 'focus-within:outline-error'] },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max'
-      }
+        false: 'w-max',
+      },
     },
-    defaultVariants: { fullWidth: false, color: 'primary' }
+    defaultVariants: { fullWidth: false, color: 'primary' },
   }
 );
 
@@ -61,10 +61,10 @@ const textAria = cva(['outline-none flex-1 bg-transparent'], {
   variants: {
     fullWidth: {
       true: 'w-full',
-      false: 'w-max'
-    }
+      false: 'w-max',
+    },
   },
-  defaultVariants: { fullWidth: false }
+  defaultVariants: { fullWidth: false },
 });
 
 export interface TextAriaProps
@@ -78,7 +78,7 @@ export interface TextAriaProps
   maxRow?: number;
 }
 
-const TextAria: React.FC<TextAriaProps> = ({
+export const TextAria: React.FC<TextAriaProps> = ({
   className,
   error,
   lable,
@@ -112,10 +112,10 @@ const TextAria: React.FC<TextAriaProps> = ({
             overflowY: 'hidden',
             ...(maxRow && {
               maxHeight: maxRow * 20 + 'px',
-              overflowY: 'auto'
+              overflowY: 'auto',
             }),
             ...(props.rows && { height: props.rows * 20 + 'px' }),
-            resize: 'none'
+            resize: 'none',
           }}
         />
       </div>
@@ -140,5 +140,3 @@ const TextAria: React.FC<TextAriaProps> = ({
     </div>
   );
 };
-
-export default TextAria;

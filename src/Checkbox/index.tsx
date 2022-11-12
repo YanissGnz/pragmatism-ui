@@ -17,23 +17,23 @@ const base = cva(
     'dark:border-neutral-300',
     'dark:peer-disabled:border-neutral-700',
     'dark:peer-checked:peer-disabled:bg-neutral-700',
-    'dark:peer-checked:peer-disabled:stroke-neutral-300'
+    'dark:peer-checked:peer-disabled:stroke-neutral-300',
   ],
   {
     variants: {
       size: {
         sm: 'w-4 h-4',
         md: 'w-[18px] h-[18px]',
-        lg: 'w-5 h-5'
+        lg: 'w-5 h-5',
       },
       color: {
         primary:
           'peer-checked:bg-primary peer-checked:text-primary-contrast-text peer-checked:stroke-primary-contrast-text',
         secondary:
-          'peer-checked:bg-secondary peer-checked:text-secondary-contrast-text peer-checked:stroke-secondary-contrast-text'
-      }
+          'peer-checked:bg-secondary peer-checked:text-secondary-contrast-text peer-checked:stroke-secondary-contrast-text',
+      },
     },
-    defaultVariants: { size: 'md', color: 'primary' }
+    defaultVariants: { size: 'md', color: 'primary' },
   }
 );
 
@@ -43,17 +43,17 @@ const lableStyle = cva(
     //** Light mode
     'peer-disabled:text-neutral-700 text-black',
     //** Dark mode
-    'dark:peer-disabled:text-neutral-500 dark:text-neutral'
+    'dark:peer-disabled:text-neutral-500 dark:text-neutral',
   ],
   {
     variants: {
       size: {
         sm: 'text-sm',
         md: 'text-base',
-        lg: 'text-lg'
-      }
+        lg: 'text-lg',
+      },
     },
-    defaultVariants: { size: 'md' }
+    defaultVariants: { size: 'md' },
   }
 );
 
@@ -64,7 +64,7 @@ export interface CheckboxProps
   lable?: string;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<CheckboxProps> = ({
   className,
   color,
   size,
@@ -92,5 +92,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
     <span className={lableStyle({ size })}>{lable}</span>
   </label>
 );
-
-export default Checkbox;

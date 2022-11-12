@@ -52,7 +52,7 @@ export interface SwitchProps
   withIcon?: boolean;
 }
 
-const Switch: React.FC<SwitchProps> = ({
+export const Switch: React.FC<SwitchProps> = ({
   className,
   color,
   size,
@@ -83,5 +83,3 @@ const Switch: React.FC<SwitchProps> = ({
     </svg>
   </label>
 );
-
-export default Switch;

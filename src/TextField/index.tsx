@@ -5,10 +5,10 @@ import nextId from 'react-id-generator';
 const wrapper = cva(['flex flex-col', 'dark:text-neutral'], {
   variants: {
     disabled: {
-      true: 'text-neutral-500 dark:text-neutral-600'
-    }
+      true: 'text-neutral-500 dark:text-neutral-600',
+    },
   },
-  defaultVariants: { disabled: false }
+  defaultVariants: { disabled: false },
 });
 
 const base = cva(
@@ -25,13 +25,13 @@ const base = cva(
     'fill-black',
     //** Dark mode
     'dark:stroke-neutral',
-    'dark:fill-neutral'
+    'dark:fill-neutral',
   ],
   {
     variants: {
       color: {
         primary: ['focus-within:outline-primary '],
-        secondary: ['focus-within:outline-secondary']
+        secondary: ['focus-within:outline-secondary'],
       },
       disabled: {
         true: [
@@ -45,16 +45,16 @@ const base = cva(
           'dark:bg-neutral-700',
           'dark:text-neutral-300 ',
           'dark:stroke-neutral-300',
-          'dark:fill-neutral-300'
-        ]
+          'dark:fill-neutral-300',
+        ],
       },
       error: { true: ['outline-error', 'focus-within:outline-error'] },
       fullWidth: {
         true: 'w-full',
-        false: 'w-max'
-      }
+        false: 'w-max',
+      },
     },
-    defaultVariants: { fullWidth: false, color: 'primary' }
+    defaultVariants: { fullWidth: false, color: 'primary' },
   }
 );
 
@@ -62,10 +62,10 @@ const textField = cva(['outline-none flex-1 bg-transparent'], {
   variants: {
     fullWidth: {
       true: 'w-full',
-      false: 'w-max'
-    }
+      false: 'w-max',
+    },
   },
-  defaultVariants: { fullWidth: false }
+  defaultVariants: { fullWidth: false },
 });
 
 export interface TextFieldProps
@@ -80,7 +80,7 @@ export interface TextFieldProps
   disabled?: boolean;
 }
 
-const TextField: React.FC<TextFieldProps> = ({
+export const TextField: React.FC<TextFieldProps> = ({
   className,
   startIcon,
   endIcon,
@@ -130,5 +130,3 @@ const TextField: React.FC<TextFieldProps> = ({
     </div>
   );
 };
-
-export default TextField;

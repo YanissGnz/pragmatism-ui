@@ -15,21 +15,21 @@ const base = cva(
     //** Dark mode
     'dark:border-neutral-300',
     'dark:peer-disabled:border-neutral-700',
-    'dark:peer-checked:peer-disabled:bg-neutral-700'
+    'dark:peer-checked:peer-disabled:bg-neutral-700',
   ],
   {
     variants: {
       size: {
         sm: 'w-4 h-4',
         md: 'w-[18px] h-[18px]',
-        lg: 'w-5 h-5'
+        lg: 'w-5 h-5',
       },
       color: {
         primary: 'peer-checked:bg-primary',
-        secondary: 'peer-checked:bg-secondary'
-      }
+        secondary: 'peer-checked:bg-secondary',
+      },
     },
-    defaultVariants: { size: 'md', color: 'primary' }
+    defaultVariants: { size: 'md', color: 'primary' },
   }
 );
 
@@ -39,17 +39,17 @@ const lableStyle = cva(
     //** Light mode
     'peer-disabled:text-neutral-700 text-black',
     //** Dark mode
-    'dark:peer-disabled:text-neutral-500 dark:text-neutral'
+    'dark:peer-disabled:text-neutral-500 dark:text-neutral',
   ],
   {
     variants: {
       size: {
         sm: 'text-sm',
         md: 'text-base',
-        lg: 'text-lg'
-      }
+        lg: 'text-lg',
+      },
     },
-    defaultVariants: { size: 'md' }
+    defaultVariants: { size: 'md' },
   }
 );
 
@@ -60,7 +60,7 @@ export interface RadioProps
   lable?: string;
 }
 
-const Radio: React.FC<RadioProps> = ({
+export const Radio: React.FC<RadioProps> = ({
   className,
   color,
   size,
@@ -88,9 +88,9 @@ const Radio: React.FC<RadioProps> = ({
             width="129"
             height="131"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feColorMatrix
               in="SourceAlpha"
               type="matrix"
@@ -138,5 +138,3 @@ const Radio: React.FC<RadioProps> = ({
     <span className={lableStyle({ size })}>{lable}</span>
   </label>
 );
-
-export default Radio;

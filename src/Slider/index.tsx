@@ -39,7 +39,11 @@ export interface SliderProps
   color?: 'primary' | 'secondary';
 }
 
-const Slider: React.FC<SliderProps> = ({ className, color, ...props }) => (
+export const Slider: React.FC<SliderProps> = ({
+  className,
+  color,
+  ...props
+}) => (
   <SliderPrimitive.Root className={root({})} {...props}>
     <SliderPrimitive.Track className={track({})}>
       <SliderPrimitive.Range className={range({ color })} />
@@ -47,5 +51,3 @@ const Slider: React.FC<SliderProps> = ({ className, color, ...props }) => (
     <SliderPrimitive.Thumb className={thumb({})} />
   </SliderPrimitive.Root>
 );
-
-export default Slider;

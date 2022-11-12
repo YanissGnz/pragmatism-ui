@@ -8,7 +8,7 @@ const list = cva(
   ['w-max p-1', 'flex rounded-full gap-2', 'bg-neutral-100', 'dark:bg-black'],
   {
     variants: {},
-    defaultVariants: {}
+    defaultVariants: {},
   }
 );
 
@@ -16,10 +16,8 @@ export interface TabsProps
   extends TabsPrimitive.TabsProps,
     VariantProps<typeof list> {}
 
-const Tabs: React.FC<TabsProps> = ({ className, ...props }) => (
+export const Tabs: React.FC<TabsProps> = ({ className, ...props }) => (
   <TabsPrimitive.List className={list({ class: className })}>
     {props.children}
   </TabsPrimitive.List>
 );
-
-export default Tabs;
