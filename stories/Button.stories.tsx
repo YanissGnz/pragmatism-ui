@@ -8,13 +8,13 @@ const meta: Meta = {
   argTypes: {
     children: {
       control: {
-        type: 'Button'
-      }
-    }
+        type: 'Button',
+      },
+    },
   },
   parameters: {
-    controls: { expanded: true }
-  }
+    controls: { expanded: true },
+  },
 };
 
 export default meta;
@@ -62,5 +62,5 @@ Icons.args = {
         strokeWidth="2"
       ></circle>
     </svg>
-  )
+  ),
 };
