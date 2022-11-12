@@ -1,17 +1,6 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": [
-    "src",
-    "types",
-    "stories/Slider.stories.tsx",
-    "stories/Select.stories.tsx",
-    "stories/RadioCheck.stories.tsx",
-    "stories/Radio.stories.tsx",
-    "stories/Link.stories.tsx",
-    "stories/Checkbox.stories.tsx",
-    "stories/Button.stories.tsx",
-    "stories/Banner.stories.tsx"
-  ],
+  "include": ["src", "types"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
