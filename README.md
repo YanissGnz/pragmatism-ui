@@ -68,7 +68,7 @@ module.exports = {
 
 ```javascript
 // Order is important
-import 'pragratism-ui/dist/tailwind.css'; // this comes first
+import 'pragratism-ui/dist/tailwind.min.css'; // this comes first
 import 'index.css'; // this comes last
 ```
 
