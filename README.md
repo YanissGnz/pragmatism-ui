@@ -69,7 +69,7 @@ module.exports = {
 ```javascript
 // Order is important
 import 'pragratism-ui/dist/tailwind.min.css'; // this comes first
-import 'index.css'; // this comes last
+import './index.css'; // this comes last
 ```
 
 ### Theme Override
