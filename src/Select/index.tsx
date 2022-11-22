@@ -6,7 +6,7 @@ import nextId from 'react-id-generator';
 
 const wrapper = cva(
   [
-    'dark:text-neutral dark:fill-neutral-400 dark:stroke-neutral-400',
+    ' dark:text-neutral dark:fill-neutral-400 dark:stroke-neutral-400',
     'flex flex-col',
   ],
   {
@@ -19,20 +19,24 @@ const wrapper = cva(
           'dark:text-neutral-600',
         ],
       },
+      fullWidth: {
+        false: 'w-max',
+      },
     },
-    defaultVariants: { disabled: false },
+    defaultVariants: { disabled: false, fullWidth: false },
   }
 );
 
 const root = cva(
   [
     //** General Layout
-    'p-3',
-    'flex items-center gap-2',
+    'w-full p-3',
+    'flex items-center gap-3',
     'rounded-xl',
     'outline-neutral-300',
     'placeholder:text-neutral-500',
     'outline outline-1 focus-within:outline-2',
+    '[&>*:nth-child(2)]:flex-1 [&>*:nth-child(2)]:text-left',
   ],
   {
     variants: {
@@ -56,12 +60,8 @@ const root = cva(
         ],
       },
       error: { true: ['outline-error', 'focus-within:outline-error'] },
-      fullWidth: {
-        true: 'w-full',
-        false: 'w-max',
-      },
     },
-    defaultVariants: { disabled: false, fullWidth: false, color: 'primary' },
+    defaultVariants: { disabled: false, color: 'primary' },
   }
 );
 
@@ -76,6 +76,7 @@ export interface SelectProps
   helperText?: string;
   errorText?: string;
   disabled?: boolean;
+  fullWidth?: boolean;
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -88,10 +89,11 @@ export const Select: React.FC<SelectProps> = ({
   errorText,
   color,
   error,
+  fullWidth = false,
   ...props
 }) => {
   return (
-    <div className={wrapper({ disabled, class: className })}>
+    <div className={wrapper({ disabled, fullWidth, class: className })}>
       <label htmlFor={props.id} className="mb-1 font-medium dark:text-inherit">
         {lable}
       </label>
@@ -131,7 +133,9 @@ export const Select: React.FC<SelectProps> = ({
         </SelectPrimitive.Portal>
       </SelectPrimitive.Root>
       {helperText && !error && (
-        <span className="mt-1 text-sm text-neutral-600">{helperText}</span>
+        <span className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+          {helperText}
+        </span>
       )}
       {error && (
         <span className="mt-1 text-sm font-medium text-error flex items-center gap-1">
