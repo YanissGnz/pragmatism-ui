@@ -90,6 +90,7 @@ export const Select: React.FC<SelectProps> = ({
   color,
   error,
   fullWidth = false,
+  placeholder,
   ...props
 }) => {
   return (
@@ -97,12 +98,12 @@ export const Select: React.FC<SelectProps> = ({
       <label htmlFor={props.id} className="mb-1 font-medium dark:text-inherit">
         {lable}
       </label>
-      <SelectPrimitive.Root disabled={disabled}>
+      <SelectPrimitive.Root disabled={disabled} {...props}>
         <SelectPrimitive.SelectTrigger
           className={root({ color, disabled, error })}
         >
           <span id={nextId('start-icon-')}>{startIcon}</span>
-          <SelectPrimitive.Value placeholder="Select" />
+          <SelectPrimitive.Value placeholder={placeholder} />
           <SelectPrimitive.SelectIcon>
             <svg
               width="12"
